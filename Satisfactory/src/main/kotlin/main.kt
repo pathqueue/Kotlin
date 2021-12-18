@@ -1,0 +1,38 @@
+@file:Suppress("DEPRECATION")
+
+import java.util.*
+
+fun main() {
+    val song1 = Song("AC/DC", "Back in Black", SongGenre.Rock, Date(1980, 12, 21), 255)
+    song1.addProduction("Robert John Lange")
+    val song2 = Song("Dabeull", "Day & Night", SongGenre.Funk, Date(2019, 10, 4), 212)
+    song2.addFeature("Holybrune")
+    song2.addProduction("Dabeull")
+    val song3 = Song("SUICIDEBOYS", "Cold Turkey", SongGenre.Hiphop, Date(2015, 9, 1), 182)
+    song3.addFeature("Pouya")
+    song3.addProduction("Budd Dwyer")
+    val song4 = Song("SUICIDEBOYS", "Runnin Thru the 7th with My Woadies", SongGenre.Hiphop, Date(2015, 9, 1), 206)
+    song4.addFeature("Pouya")
+    song4.addProduction("Budd Dwyer")
+    val song5 = Song("Yung Lean", "Pearl Fountain", SongGenre.Hiphop, Date(2016, 4, 28), 193)
+    song5.addFeature("Sickboyrari")
+    song5.addFeature("Bladee")
+    song5.addProduction("Acea")
+    song5.addProduction("Yung Sherman")
+    val album1 = Album("Back in Black", Date(1980, 7, 25))
+    album1.addSong(song1)
+    val album2 = Album("South Side Suicide", Date(2015, 9, 1))
+    album2.addSong(song3)
+    album2.addSong(song4)
+
+    val playList = PlayListImpl()
+    playList.addAlbum(album1)
+    playList.addSong(song2)
+    playList.addSong(song5)
+    playList.addAlbum(album2)
+    print(playList)
+    playList.shufflePlaylist()
+    print(playList)
+    playList.shufflePlaylist()
+    print(playList)
+}
