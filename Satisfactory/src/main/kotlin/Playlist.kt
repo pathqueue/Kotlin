@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 import java.util.*
 
 enum class SongGenre {
@@ -38,13 +36,12 @@ data class Album(
 }
 
 data class Song(
-    val strArtist: String,
+    val artist: Artist,
     val songName: String,
     val songGenre: SongGenre,
     val releaseDate: Date,
     val duration: Int
 ) {
-    val artist: Artist = Artist(strArtist)
     val features: MutableList<Artist> = mutableListOf()
     val productions: MutableList<Artist> = mutableListOf()
 
@@ -80,7 +77,6 @@ class PlayListImpl : Playlist {
 
     override fun shufflePlaylist() {
         this.playlist.shuffle()
-        print("Playlist was shuffled\n\n")
     }
 
     override fun toString(): String {
